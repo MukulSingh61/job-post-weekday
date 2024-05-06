@@ -40,7 +40,9 @@ const JobPostList = () => {
                             logoUrl={item.logoUrl}
                             minJdSalary={item.minJdSalary} 
                             maxJdSalary={item.maxJdSalary}
-                            salaryCurrencyCode={item.salaryCurrencyCode}  />
+                            salaryCurrencyCode={item.salaryCurrencyCode}
+                            minExp={item.minExp}
+                            maxExp={item.maxExp}  />
             </Grid>
             ))}
             </Grid>
