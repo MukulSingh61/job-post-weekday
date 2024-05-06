@@ -2,6 +2,33 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Prerequisites
+Node.js and npm should be installed on your machine.
+
+`Instructions`:-
+# Step 1: Install React and Redux
+Run the following command to install React and React Redux:
+
+### `npm install react react-redux`
+
+# Step 2: Install React Scripts
+Install react-scripts as a development dependency:
+
+### `npm install react-scripts --save`
+
+# Step 3: Install Redux Toolkit
+Install Redux Toolkit and update React Redux to the latest version:
+
+### `npm install @reduxjs/toolkit@latest react-redux`
+
+# Step 4: Install Material-UI
+Install Material-UI along with Emotion for styling:
+
+### `npm install @mui/material @emotion/react @emotion/styled`
+Usage:
+Once the installations are complete, you can start developing your React application with Redux and Material-UI. Use react-scripts to start the development server and begin coding.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
