@@ -1,11 +1,31 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import Box from '@mui/material/Box';
-import { Card, CardContent, CardActions, Button, Stack } from "@mui/material";
+import { Card, CardContent, CardActions, 
+    Button, Stack, Modal } from "@mui/material";
 import Typography from '@mui/material/Typography';
+import lightning from '../lightning-icon.svg';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 
 function JobCard({companyName, jobDetailsFromCompany, location, jobRole, logoUrl, 
     minJdSalary, maxJdSalary, salaryCurrencyCode, minExp, maxExp })
 {
-    console.log(companyName)
+    const [fullJobDescription, setFullJobDescription] = React.useState(jobDetailsFromCompany);
+    const [open, setOpen] = React.useState(false); // state to open model when clicked on show more btn
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     const card = (
         <CardContent>
             <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
@@ -34,7 +54,22 @@ function JobCard({companyName, jobDetailsFromCompany, location, jobRole, logoUrl
                         {jobDetailsFromCompany.length > 150 ? `${jobDetailsFromCompany.slice(0, 150)}...` : jobDetailsFromCompany}
                         { jobDetailsFromCompany.length > 150 ?
                         <div>
-                           <Button>Show More</Button> 
+                           <Button onClick={handleOpen}>Show More</Button>
+                           <Modal
+                                open={open}
+                                onClose={handleClose}
+                                aria-labelledby="modal-modal-title"
+                                aria-describedby="modal-modal-description"
+                            >
+                                <Box sx={style}>
+                                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                                    Job Description
+                                    </Typography>
+                                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                                        {fullJobDescription}
+                                    </Typography>
+                                </Box>
+                            </Modal> 
                         </div>
                         :<p></p>}
                     </Typography>
@@ -53,11 +88,11 @@ function JobCard({companyName, jobDetailsFromCompany, location, jobRole, logoUrl
                     </Typography>
                 </div>
             </Stack>
-            
-            
-
             <CardActions>
-                <Button size="medium" varient="contained">Apply</Button>
+                <Button size="medium" variant="contained" sx={{ width: '90%' }}>
+                    <img src={lightning} alt="thunder" width="5%" height="5%"/>
+                     Apply
+                </Button>
             </CardActions>
         </CardContent>
     );

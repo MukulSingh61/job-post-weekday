@@ -46,13 +46,12 @@ const JobPostList = () => {
             </Grid>
             ))}
             </Grid>
-            <div>
+            <div className="progress-circle">
                 {isLoading && <CircularProgress sx={{
                 color: (theme) => (theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8'),
                 animationDuration: '550ms',
                 position: 'absolute',
-                alignItems: 'center',
-                left: 0
+                left: '50vw'
                 }} color="secondary"/>}
             </div>
         </div>
