@@ -2,34 +2,35 @@ import Box from '@mui/material/Box';
 import { Card, CardContent, CardActions, Button, Stack } from "@mui/material";
 import Typography from '@mui/material/Typography';
 
-function JobCard()
+function JobCard({companyName, jobDetailsFromCompany, location, jobRole, logoUrl, minJdSalary, maxJdSalary, salaryCurrencyCode })
 {
+    console.log(companyName)
     const card = (
         <CardContent>
             <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
                 <div>
-                    <img src="" alt="logo" />
+                    <img src={logoUrl} alt="logo" />
                 </div>
                 <div>
                     <Typography sx={{ fontSize: 14 }} variant="b" color="text.secondary" gutterBottom>
-                        Outbrain
+                        {companyName}
                     </Typography>
                     <Typography sx={{ fontSize: 14 }} variant="h6" component="div">
-                        Senior Mobile Engineer
+                        {jobRole}
                     </Typography>
                     <Typography sx={{ fontSize: 12}} variant="h6" component="div">
-                        Gurugram
+                        {location}
                     </Typography>
                 </div>
                 <div>
                     <Typography sx={{ fontSize: 14 }} variant="b" color="text.secondary" gutterBottom>
-                            Estimated Salary: ₹14 - 18 LPA
+                            Estimated Salary: {minJdSalary} - {maxJdSalary} {salaryCurrencyCode}
                     </Typography>
                     <Typography sx={{ fontSize: 15 }} component="div">
                         <Typography sx={{ fontSize: 15 }} variant="h6" component="div">
                                 About Company
                         </Typography>
-                        Outbrain (Nasdaq: OB) is a leading technology platform that drives business results by engaging people across the open web. Outbrain predicts moments of engagement to drive measurable outcomes for advertisers and publishers using AI and machine learning across more than 7,000 online properties globally. Founded in 2006, Outbrain is headquartered in New York with offices in Israel and across the United States, Europe, Asia-Pacific, and South America.
+                        { jobDetailsFromCompany }
                         <div>
                            <Button>Show More</Button> 
                         </div>
